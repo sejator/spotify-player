@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Kota {
+  id        Int      @id @default(autoincrement())
+  kotaId    String   @unique
+  nama      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("kota")
+}
+
+model JadwalSholat {
+  id            Int      @id @default(autoincrement())
+  kotaId        String
+  kota          String?
+  provinsi      String?
+  tanggalString String?
+  tanggal       String
+  subuh         String
+  dhuha         String
+  dzuhur        String
+  ashar         String
+  maghrib       String
+  isya          String
+  imsak         String
+  terbit        String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([kotaId, tanggal])
+  @@map("jadwal_sholat")
+}
+
+model Setting {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
+}

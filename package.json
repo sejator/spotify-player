@@ -1,0 +1,45 @@
+{
+  "name": "spotify-player",
+  "version": "2.0.0",
+  "description": "Pemutar musik Spotify dengan dukungan audio lokal dan jadwal sholat.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 54321 -H 127.0.0.1",
+    "build": "next build",
+    "start": "next start -p 54321 -H 127.0.0.1",
+    "lint": "eslint",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:generate": "prisma generate",
+    "prisma:seed": "prisma db seed",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.2.0",
+    "@prisma/client": "^7.2.0",
+    "better-sqlite3": "^12.5.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.26",
+    "lucide-react": "^0.562.0",
+    "next": "16.1.1",
+    "prisma-client": "^0.0.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-hot-toast": "^2.6.0",
+    "sqlite3": "^5.1.7",
+    "zustand": "^5.0.9"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.27",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/spotify-web-api-node": "^5.0.11",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "prisma": "^7.2.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

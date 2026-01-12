@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  /* Base */
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+
+  --spotify-dark: #0a0a0a;
+  --spotify-white: #ffffff;
+  --spotify-black: #121212;
+  --spotify-green: #169c45;
+
+  --spotify-surface: #181818;
+  --spotify-surface-2: #1f1f1f;
+  --spotify-surface-3: #2a2a2a;
+  --spotify-muted: #b3b3b3;
+  --spotify-accent: #169c45;
+  --spotify-border: #2a2a2a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-spotify-dark: var(--spotify-dark);
+  --color-spotify-white: var(--spotify-white);
+  --color-spotify-surface: var(--spotify-surface);
+  --color-spotify-surface-2: var(--spotify-surface-2);
+  --color-spotify-surface-3: var(--spotify-surface-3);
+  --color-spotify-muted: var(--spotify-muted);
+  --color-spotify-accent: var(--spotify-accent);
+  --color-spotify-green: var(--spotify-green);
+  --color-spotify-border: var(--spotify-border);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html,
+  body {
+    background-color: var(--spotify-dark);
+    color: var(--spotify-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--spotify-accent);
+  }
+}
+
+@layer components {
+  .spotify-card {
+    background-color: var(--spotify-surface);
+    color: var(--spotify-white);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: background-color 150ms ease;
+  }
+
+  .spotify-card:hover {
+    background-color: var(--spotify-surface-2);
+  }
+
+  .btn-spotify {
+    background-color: var(--spotify-accent);
+    color: #000;
+    padding: 0.45rem 1.25rem;
+    border-radius: 9999px;
+    font-weight: 700;
+  }
+
+  .sidebar-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    color: var(--spotify-muted);
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+
+  .sidebar-btn:hover {
+    background-color: var(--spotify-surface-2);
+    color: var(--spotify-white);
+  }
+
+  .sidebar-btn.active {
+    background-color: var(--spotify-surface-2);
+    color: var(--spotify-white);
+    font-weight: 600;
+  }
+
+  #player-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+  }
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 12s linear infinite;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}

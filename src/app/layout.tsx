@@ -26,11 +26,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ThemeProvider>
           <PlayerProvider>
             <Template>
-              <div className="h-screen w-screen overflow-hidden flex flex-col">
+              <div className="h-screen w-screen flex flex-col">
                 {/* MAIN AREA */}
                 <div className="grid flex-1 grid-cols-[260px_1fr_320px] overflow-hidden">
                   {/* LEFT */}
-                  <aside className="bg-spotify-surface border-r border-spotify-border">
+                  <aside className="bg-spotify-surface border-r border-spotify-border h-full overflow-hidden">
                     <Sidebar />
                   </aside>
 

@@ -13,9 +13,11 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-65 h-full bg-spotify-surface text-spotify-white flex flex-col border-r border-spotify-border">
+    <div className="h-full flex flex-col bg-spotify-surface text-spotify-white border-r border-spotify-border">
       {/* LOGO / BRAND */}
-      <div className="px-6 py-5 text-lg font-semibold tracking-tight shrink-0">Spotify</div>
+      <div className="px-6 py-5 text-lg font-semibold shrink-0">
+        <span>Spotify</span>
+      </div>
 
       {/* MAIN NAV */}
       <nav className="flex flex-col gap-1 px-2 shrink-0">
@@ -31,7 +33,7 @@ export default function Sidebar() {
       </nav>
 
       {/* PLAYLIST SECTION */}
-      <div className="mt-4 pt-4 border-t border-spotify-border flex-1 min-h-0 overflow-y-auto px-2">
+      <div className="mt-4 py-4 border-t border-spotify-border flex-1 min-h-0 overflow-y-auto px-2">
         <p className="px-2 mb-3 text-[10px] font-semibold text-spotify-muted tracking-wider">PLAYLISTS</p>
 
         <div className="space-y-1">
@@ -42,7 +44,7 @@ export default function Sidebar() {
                 href={`/playlist/${pl.id}`}
                 className={clsx(
                   "block truncate rounded px-2 py-1.5 text-sm text-spotify-muted hover:text-spotify-white hover:bg-spotify-surface-2 transition",
-                  pathname === `/playlist/${pl.id}` && "bg-spotify-surface-2 text-spotify-white"
+                  pathname === `/playlist/${pl.id}` && "bg-spotify-surface-2 text-spotify-white",
                 )}
               >
                 {pl.name}
@@ -67,7 +69,7 @@ export default function Sidebar() {
           </SidebarLink>
         </div>
       </div>
-    </aside>
+    </div>
   );
 }
 
@@ -77,7 +79,7 @@ function SidebarLink({ href, active, children }: { href: string; active?: boolea
       href={href}
       className={clsx(
         "block rounded px-2 py-2 text-sm font-medium transition",
-        active ? "bg-spotify-surface-2 text-spotify-white" : "text-spotify-muted hover:text-spotify-white hover:bg-spotify-surface-2"
+        active ? "bg-spotify-surface-2 text-spotify-white" : "text-spotify-muted hover:text-spotify-white hover:bg-spotify-surface-2",
       )}
     >
       {children}
